@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "exercise_list" %>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<h1> Workout 1 </h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <% @exercises.each do |exercise| %>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><%= exercise.name %></h4>
+                <h5 class="card-subtitle mb-2 text-muted"><%= exercise.muscle_group %></h5>
+                <% exercise.repsets.each do |repset| %>
+                    <p class="card-text"> <%= repset.reps %> reps at <%= repset.weight %> kg </p>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary create_button">Add a new Exercise</button>
+  
+</div>
+
